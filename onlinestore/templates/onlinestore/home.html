@@ -4,11 +4,11 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ product.name }}</a>
-              <small class="text-muted">{{ product.description }}</small>
+              <h1 class="mr-2">{{ product.name }}</h1>
             </div>
-            <h2><a class="article-title">{{ product.price }}</a></h2>
-            <p class="article-content">{{ product.stock }}</p>
+            <h3><a class="article-title"> Description: {{ product.description }}</a></h3>
+            <h3><a class="article-title"> Price: {{ product.price }}</a></h3>
+            <p class="article-content">Stock: {{ product.stock }}</p>
           </div>
         </article>
     {% endfor %}
