@@ -15,8 +15,33 @@
     {% else %}
         <title>Django Store</title>
     {% endif %}
+    <style>
+      /* Add padding to the top of the page to prevent content from hiding behind the fixed navbar */
+      body {
+        padding-top: 70px; /* Adjust this if your navbar height differs */
+      }
+    </style>
 </head>
 <body>
+    <!-- Fixed Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="{% url 'store-home' %}">Django Store</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="topNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     {% block content %}{% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

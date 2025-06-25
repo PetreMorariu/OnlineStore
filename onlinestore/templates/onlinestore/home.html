@@ -1,15 +1,24 @@
 {% extends "onlinestore/base.html" %}
 {% block content %}
+<div class="container">
+  <div class="row">
     {% for product in products %}
-        <article class="media content-section">
+      <div class="col-md-6 mb-4"> <!-- Half width column with bottom margin -->
+        <article class="media content-section rounded shadow-sm"> <!-- Add rounded and optional shadow -->
           <div class="media-body">
             <div class="article-metadata">
               <h1 class="mr-2">{{ product.name }}</h1>
             </div>
-            <h3><a class="article-title"> Description: {{ product.description }}</a></h3>
-            <h3><a class="article-title"> Price: {{ product.price }}</a></h3>
+            <h3><a class="article-title">Description: {{ product.description }}</a></h3>
+            <h3><a class="article-title">Price: {{ product.price }}</a></h3>
             <p class="article-content">Stock: {{ product.stock }}</p>
           </div>
         </article>
+      </div>
+      {% if forloop.counter|divisibleby:2 %}
+        </div><div class="row"> <!-- Close current row and start a new one after 2 products -->
+      {% endif %}
     {% endfor %}
+  </div>
+</div>
 {% endblock content %}
