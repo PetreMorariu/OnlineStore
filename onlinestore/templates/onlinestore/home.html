@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "onlinestore/base.html" %}
+{% block content %}
+    {% for product in products %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ product.name }}</a>
+              <small class="text-muted">{{ product.description }}</small>
+            </div>
+            <h2><a class="article-title">{{ product.price }}</a></h2>
+            <p class="article-content">{{ product.stock }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
