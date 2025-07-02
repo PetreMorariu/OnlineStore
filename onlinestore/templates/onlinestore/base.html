@@ -31,12 +31,22 @@
 
       <div class="collapse navbar-collapse" id="topNavbar">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
+          {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="#">{{user}}</a>
+                 <!-- Logout Button -->
+                <form method="POST" action="#" class="form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                    <button class="btn btn-link my-2 my-sm-0 margin-top: -2mm" style="color: blue; text-decoration: none;"
+                           type="submit">Logout</button>
+                </form>
+          {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+          {% endif %}
         </ul>
       </div>
     </nav>
