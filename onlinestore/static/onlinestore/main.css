@@ -1,5 +1,5 @@
 body {
-  background: lightblue;
+  background: #F0EAD6 !important;
   color: #333333;
   margin-top: 5rem;
 }
@@ -81,4 +81,9 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+/* in main.css */
+.custom-navbar {
+  background-color: #ADD8E6; /* light blue */
 }
