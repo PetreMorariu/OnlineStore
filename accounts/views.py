@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
@@ -29,3 +29,8 @@ def login_user(request):
     else:
         form = AuthenticationForm()
         return render(request,'accounts/login.html',{'form':form})
+
+def logout_user(request):
+    if request.method == 'POST':
+        logout(request)
+        return render(request, 'accounts/logout.html')
